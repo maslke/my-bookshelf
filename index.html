@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="我的书架是一款 Android 个人藏书管理应用。扫码录入书籍，用分类、标签和存放位置整理藏书，查看藏书统计，并通过 ZIP 备份和 CSV 导入导出保管自己的数据。"
+    />
+    <meta name="theme-color" content="#f8f5f0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_CN" />
+    <meta property="og:title" content="我的书架 · 让每一本书，都有归处" />
+    <meta
+      property="og:description"
+      content="扫描、整理、寻找、翻阅。在手机里，安放你的私人藏书馆。适用于 Android 8.0 及以上。"
+    />
+    <title>我的书架 · 让每一本书，都有归处</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <!-- Apply the saved theme before styles load to avoid a light-theme flash. -->
+    <script src="./theme.js"></script>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+    <header class="site-header wrap">
+      <a class="brand" href="#" aria-label="我的书架，返回顶部">
+        <img src="./assets/favicon.svg" width="38" height="38" alt="" />
+        <span
+          >我的书架<span class="brand-en" lang="en">MY BOOKSHELF</span></span
+        >
+      </a>
+      <div class="header-actions">
+        <nav aria-label="主导航">
+          <a href="#features">功能一览</a>
+          <a href="#data">数据与备份</a>
+          <a href="#setup">配置指南</a>
+          <a class="nav-download" href="#download"
+            >下载应用 <span aria-hidden="true">↗</span></a
+          >
+        </nav>
+        <label class="theme-switcher" hidden>
+          <svg class="icon theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path
+              d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+            />
+          </svg>
+          <svg class="icon theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 14A8.5 8.5 0 0 1 10 4a8.5 8.5 0 1 0 10 10Z" />
+          </svg>
+          <span class="sr-only">页面主题</span>
+          <select id="theme-select" aria-label="页面主题">
+            <option value="system">跟随系统</option>
+            <option value="light">浅色主题</option>
+            <option value="dark">深色主题</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="tiny-line"></span> 你的私人藏书馆</p>
+          <h1 id="hero-title">
+            让每一本书，<br />都<span class="title-mark">有归处。</span>
+          </h1>
+          <p class="hero-description">
+            记得买过的书，找到想读的那一本。<br />从扫码入库到分类整理，让日渐丰盈的藏书，<br
+              class="desktop-break"
+            />在手机里也井然有序。
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5" />
+              </svg>
+              下载 Android 版
+            </a>
+            <a class="text-link" href="#features"
+              >逛逛我的书架 <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <p class="hero-meta">
+            <span class="status-dot"></span> Android 8.0+
+            <span class="meta-divider">/</span> 本机存储
+            <span class="meta-divider">/</span> 随时备份
+          </p>
+        </div>
+
+        <figure class="hero-visual">
+          <div class="visual-arch" aria-hidden="true"></div>
+          <span class="visual-note" lang="en" aria-hidden="true"
+            >A LITTLE ORDER. A LOT OF STORIES.</span
+          >
+          <div class="phone" aria-hidden="true">
+            <div class="phone-camera"></div>
+            <div class="phone-screen">
+              <div class="phone-status">
+                <span>9:41</span><span>▰ ▰ ▮</span>
+              </div>
+              <div class="phone-heading">
+                <div>
+                  <strong>我的书架</strong
+                  ><small>共 6 本书 · 慢慢收集，好好阅读</small>
+                </div>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <circle cx="10" cy="10" r="6.5" />
+                  <path d="m15 15 5 5" />
+                </svg>
+              </div>
+              <div class="phone-filters">
+                <span class="selected">全部</span><span>在读</span
+                ><span>已读</span><span>未读</span>
+              </div>
+              <div class="book-grid">
+                <div class="book">
+                  <div class="cover cover-walden">
+                    <span class="cover-english">WALDEN</span><b>瓦尔登湖</b
+                    ><i class="lake"></i><small>HENRY D. THOREAU</small>
+                  </div>
+                  <strong>瓦尔登湖</strong><small>亨利·戴维·梭罗</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-prince">
+                    <span class="cover-english">LE PETIT PRINCE</span
+                    ><b>小王子</b><i class="planet">✧</i
+                    ><small>ANTOINE DE SAINT-EXUPÉRY</small>
+                  </div>
+                  <strong>小王子</strong><small>圣埃克苏佩里</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-birds">
+                    <span class="cover-english">STRAY BIRDS</span><b>飞鸟集</b
+                    ><i class="bird">⌁</i><small>RABINDRANATH TAGORE</small>
+                  </div>
+                  <strong>飞鸟集</strong><small>泰戈尔</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-moon">
+                    <span class="cover-english">THE MOON AND<br />SIXPENCE</span
+                    ><i class="moon"></i><b>月亮与<br />六便士</b>
+                  </div>
+                  <strong>月亮与六便士</strong><small>毛姆</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-mountain">
+                    <span class="cover-english">SANG ETSU KI</span
+                    ><i class="mountain"></i><b>山月记</b
+                    ><small>中 岛 敦</small>
+                  </div>
+                  <strong>山月记</strong><small>中岛敦</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-flower">
+                    <span class="cover-english">LU XUN</span><b>朝花夕拾</b
+                    ><i class="flower">✳</i><small>鲁 迅</small>
+                  </div>
+                  <strong>朝花夕拾</strong><small>鲁迅</small>
+                </div>
+              </div>
+              <div class="phone-nav">
+                <span class="active">▥<small>书架</small></span
+                ><span>▥<small>统计</small></span
+                ><span class="add">＋</span><span>◉<small>浏览</small></span
+                ><span>♙<small>我的</small></span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-label" aria-hidden="true">
+            <span class="label-icon">✓</span>
+            <div>
+              每一份喜爱，都有迹可循<small>A home for every book.</small>
+            </div>
+          </div>
+          <figcaption>书架界面示意 · 书目与封面仅作展示</figcaption>
+        </figure>
+      </section>
+
+      <div class="principles wrap" aria-label="应用特点">
+        <div>
+          <span class="principle-number">01</span>
+          <p>
+            <strong>录入，少一点手忙脚乱</strong
+            ><span>扫码识别 ISBN，也能手动添加</span>
+          </p>
+        </div>
+        <div>
+          <span class="principle-number">02</span>
+          <p>
+            <strong>整理，多一点随心所欲</strong
+            ><span>分类、标签、位置，各有章法</span>
+          </p>
+        </div>
+        <div>
+          <span class="principle-number">03</span>
+          <p>
+            <strong>数据，留在自己手里</strong
+            ><span>本机保存，支持完整备份与导出</span>
+          </p>
+        </div>
+      </div>
+
+      <section
+        class="features wrap section-space"
+        id="features"
+        aria-labelledby="features-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">一本一本，成为你的书架</p>
+            <h2 id="features-title">藏书的事，<br />都有条理。</h2>
+          </div>
+          <p>
+            为喜欢实体书的你，准备顺手的小工具。<br />照顾每一次录入，也照顾日后的每一次寻找。
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-art scan-art" aria-hidden="true">
+              <div class="barcode">
+                <span>ISBN 978-7-…</span>
+                <div class="barcode-lines"></div>
+                <div class="scan-line"></div>
+              </div>
+              <span class="art-tag">＋ 加入书架</span>
+            </div>
+            <div class="feature-text">
+              <span class="feature-index">01 / COLLECT</span>
+              <h3>扫一下，新书就到家</h3>
+              <p>
+                扫描 ISBN 条码，查询书籍信息。支持连续扫码、手动输入
+                ISBN，也能为没有 ISBN 的书建立记录。
+              </p>
+              <span class="feature-detail">多来源书目信息 · 手动补全资料</span>
+              <a class="inline-link feature-setup-link" href="#setup"
+                >配置万维易源 ISBN 查询 <span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-art organize-art" aria-hidden="true">
+              <div class="folder">
+                <svg viewBox="0 0 24 24"><path d="M3 6h7l2 3h9v11H3Z" /></svg
+                ><span>文学与生活</span><small>给喜爱的书，一个专属角落</small>
+              </div>
+              <div class="art-tags">
+                <span>散文</span><span>在读</span><span>客厅 · A-02</span>
+              </div>
+            </div>
+            <div class="feature-text">
+              <span class="feature-index">02 / ORGANIZE</span>
+              <h3>怎么归类，由你定义</h3>
+              <p>
+                用分类和标签串起兴趣，记录实体书的存放位置。按未读、在读、已读筛选，批量整理也轻松。
+              </p>
+              <span class="feature-detail">自定义分类 · 标签 · 位置管理</span>
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-art stats-art" aria-hidden="true">
+              <div class="mini-chart">
+                <div class="donut"></div>
+                <div class="chart-legend">
+                  <span><i></i> 文学</span><span><i></i> 历史</span
+                  ><span><i></i> 其他</span>
+                </div>
+              </div>
+              <span class="chart-caption">从不同维度，看见你的藏书</span>
+            </div>
+            <div class="feature-text">
+              <span class="feature-index">03 / DISCOVER</span>
+              <h3>看见你的藏书风景</h3>
+              <p>
+                从作者、出版社、分类、标签、出版年份和语言了解藏书分布，点进统计明细，重逢熟悉的好书。
+              </p>
+              <span class="feature-detail">藏书统计 · 阅读状态 · 明细查看</span>
+            </div>
+          </article>
+        </div>
+        <div class="more-features">
+          <span>还有这些贴心细节</span>
+          <p>
+            书架搜索与排序 <i>／</i> 封面大图预览 <i>／</i> 本地封面选择
+            <i>／</i> 随机翻阅已有藏书
+          </p>
+        </div>
+      </section>
+
+      <section class="data-section" id="data" aria-labelledby="data-title">
+        <div class="data-inner wrap">
+          <div class="data-copy">
+            <p class="eyebrow">收藏的安心感，也来自数据</p>
+            <h2 id="data-title">书是你的。<br />书架的数据也是。</h2>
+            <p class="data-description">
+              藏书记录保存在本机，日常查看与整理无需联网。<br />换设备前，或一次大整理后，为书架留一份备份。
+            </p>
+            <ul class="data-list">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>完整 ZIP 备份与恢复</h3>
+                  <p>
+                    保存书目、本地封面、分类、位置、个人资料与设置。恢复前可预览，支持合并或替换。
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>CSV 导入与导出</h3>
+                  <p>
+                    让书目在应用和表格之间流动，方便批量处理。CSV
+                    保存书目和封面引用，完整迁移请使用 ZIP。
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p class="data-note">
+              在线查询书目信息和加载网络封面时，需要联网。
+            </p>
+          </div>
+          <div class="backup-visual" aria-hidden="true">
+            <span class="backup-topline">MY BOOKSHELF / MY COLLECTION</span>
+            <div class="archive-icon">
+              <svg viewBox="0 0 80 88">
+                <path d="M14 4h34l20 20v60H14Z" />
+                <path
+                  d="M48 4v20h20M37 5v12m6 0v8m-6 0v8m6 0v8m-6 0v8m6 0v8M34 60h13v12H34Z"
+                /></svg
+              ><span>.zip</span>
+            </div>
+            <div class="backup-file">
+              <span>我的书架 · 完整备份</span
+              ><span class="backup-check">✓</span>
+            </div>
+            <div class="backup-contents">
+              <span>书目资料</span><span>本地封面</span><span>分类与位置</span
+              ><span>个人设置</span>
+            </div>
+            <p>认真收集，也妥善保管。</p>
+            <div class="backup-bottomline">
+              <span>KEEP YOUR STORIES CLOSE.</span><span>↗</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="service-guide wrap"
+        id="setup"
+        aria-labelledby="setup-title"
+      >
+        <div class="service-heading">
+          <div class="service-copy">
+            <p class="eyebrow">书籍信息服务 · 配置指南</p>
+            <h2 id="setup-title">为扫码录入，<br />多添一个信息来源。</h2>
+            <p class="service-description">
+              万维易源提供 ISBN 图书查询服务，可按 ISBN
+              获取书名、作者、出版社等书目信息。 申请自己的 API Key（平台称为
+              appKey），即可在“我的书架”中配置并启用。
+            </p>
+          </div>
+          <a
+            class="button service-link"
+            href="https://www.showapi.com/apis/isbn-book-1626"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            打开万维易源服务页面 <span aria-hidden="true">↗</span>
+            <span class="sr-only">（在新标签页打开）</span>
+          </a>
+        </div>
+        <ol class="setup-steps">
+          <li>
+            <span class="setup-number" aria-hidden="true">01</span>
+            <h3>注册并获取 appKey</h3>
+            <p>
+              打开上方服务页面，注册或登录万维易源。点击“查看我的
+              appKey”或“查看密钥”， 进入控制台获取并复制自己的 appKey。
+            </p>
+          </li>
+          <li>
+            <span class="setup-number" aria-hidden="true">02</span>
+            <h3>在应用中填入并启用</h3>
+            <p>
+              进入“我的 → 书籍信息服务”，找到“万维易源”，将 appKey 粘贴到
+              “万维易源 appKey”输入框，并确认该服务的启用开关已打开。
+            </p>
+          </li>
+          <li>
+            <span class="setup-number" aria-hidden="true">03</span>
+            <h3>测试连接，然后保存</h3>
+            <p>
+              点击“测试 Key”检查连接。测试成功后，点击页面右上角“保存”，
+              即可在扫码或输入 ISBN 时使用。仅测试不会保存配置。
+            </p>
+          </li>
+        </ol>
+        <p class="setup-note">
+          调用额度与服务规则以万维易源官方页面为准。“测试
+          Key”会实际发起一次查询，可能消耗服务调用额度。
+        </p>
+      </section>
+
+      <section class="faq wrap section-space" aria-labelledby="faq-title">
+        <div>
+          <p class="eyebrow">开始之前</p>
+          <h2 id="faq-title">你可能想知道</h2>
+          <p class="faq-intro">关于这座小小的私人藏书馆。</p>
+        </div>
+        <div class="faq-items">
+          <details>
+            <summary>
+              这是一款电子书阅读器吗？<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              我的书架主要用于管理个人藏书：记录书目信息、阅读状态与存放位置。它不提供电子书正文，也不提供书籍文件下载。
+            </p>
+          </details>
+          <details>
+            <summary>
+              没有 ISBN，或者查不到书籍怎么办？<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              可以手动添加书名、作者等信息，不必填写
+              ISBN。在线查询依赖第三方书目来源，信息可能不完整，你可以在保存前核对，也可以之后继续编辑和补全。
+            </p>
+          </details>
+          <details>
+            <summary>
+              可以离线使用吗？<span class="faq-plus" aria-hidden="true"></span>
+            </summary>
+            <p>
+              已保存书目的查看、搜索、分类与整理可以离线进行。在线书目查询、网络封面的获取需要网络；部分书目服务需在应用中配置自己的
+              API Key。网络封面不等同于已保存在本机的图片。
+            </p>
+          </details>
+          <details>
+            <summary>
+              换手机时，怎样带走我的书架？<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              在“我的 → 数据导入导出”中导出完整 ZIP
+              备份，将文件保存到其他位置，在新设备安装应用后再恢复。完整备份包含本地图片与设置；CSV
+              更适合表格交换。建议定期备份，并在恢复前核对预览。
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section
+        class="download-section wrap"
+        id="download"
+        aria-labelledby="download-title"
+      >
+        <div class="download-decoration" aria-hidden="true">▥</div>
+        <p class="eyebrow">下一本好书，从你的书架开始</p>
+        <h2 id="download-title">
+          把你的藏书，<br class="mobile-break" />装进口袋。
+        </h2>
+        <p class="download-description">
+          给散落在各处的书，一个随时找得到的家。
+        </p>
+        <!-- 发布安装包后，可将此链接替换为具体 Release 的已签名 APK 下载地址。 -->
+        <a
+          class="button button-light"
+          href="https://github.com/maslke/my-bookshelf/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5" /></svg
+          >前往 Releases 下载<span aria-hidden="true">↗</span
+          ><span class="sr-only">（在新标签页打开）</span></a
+        >
+        <p class="download-meta">适用于 Android 8.0 及以上 · APK 安装包</p>
+        <p class="release-note">
+          安装包发布后可在 GitHub Releases 获取；若暂无可用版本，请稍后再来。
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <a class="brand footer-brand" href="#"
+        ><img src="./assets/favicon.svg" width="28" height="28" alt="" /><span
+          >我的书架</span
+        ></a
+      >
+      <p>为每一本书，留一个位置。</p>
+      <a
+        class="footer-github"
+        href="https://github.com/maslke/my-bookshelf"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub 发布 <span aria-hidden="true">↗</span
+        ><span class="sr-only">（在新标签页打开）</span></a
+      >
+    </footer>
+  </body>
+</html>
