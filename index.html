@@ -16,7 +16,7 @@
       content="扫描、整理、寻找、翻阅。在手机里，安放你的私人藏书馆。适用于 Android 8.0 及以上。"
     />
     <title>我的书架 · 让每一本书，都有归处</title>
-    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./assets/app-icon.svg" />
     <!-- Apply the saved theme before styles load to avoid a light-theme flash. -->
     <script src="./theme.js"></script>
     <link rel="stylesheet" href="./styles.css" />
@@ -25,7 +25,7 @@
     <a class="skip-link" href="#main">跳到主要内容</a>
     <header class="site-header wrap">
       <a class="brand" href="#" aria-label="我的书架，返回顶部">
-        <img src="./assets/favicon.svg" width="38" height="38" alt="" />
+        <img src="./assets/app-icon.svg" width="38" height="38" alt="" />
         <span
           >我的书架<span class="brand-en" lang="en">MY BOOKSHELF</span></span
         >
@@ -372,6 +372,29 @@
             <span class="sr-only">（在新标签页打开）</span>
           </a>
         </div>
+        <aside class="service-quota" aria-labelledby="quota-title">
+          <div class="quota-amount">
+            <span class="quota-label">注册用户每日免费额度</span>
+            <p class="quota-number"><strong>100</strong><span>次 / 天</span></p>
+            <span class="quota-caption">ISBN 查询 API 调用</span>
+          </div>
+          <div class="quota-copy">
+            <span class="quota-badge">注册即享 · 无需付费</span>
+            <h3 id="quota-title">日常藏书查询，免费额度通常就够用。</h3>
+            <p>
+              万维易源 L0 基础版每天可免费调用 100 次
+              API，适合个人日常藏书录入与查询，无需购买资源包即可开始使用。
+            </p>
+            <a
+              class="quota-link"
+              href="https://www.showapi.com/free-api"
+              target="_blank"
+              rel="noopener noreferrer"
+              >查看官方免费额度说明 <span aria-hidden="true">↗</span
+              ><span class="sr-only">（在新标签页打开）</span></a
+            >
+          </div>
+        </aside>
         <ol class="setup-steps">
           <li>
             <span class="setup-number" aria-hidden="true">01</span>
@@ -492,7 +515,7 @@
 
     <footer class="site-footer wrap">
       <a class="brand footer-brand" href="#"
-        ><img src="./assets/favicon.svg" width="28" height="28" alt="" /><span
+        ><img src="./assets/app-icon.svg" width="28" height="28" alt="" /><span
           >我的书架</span
         ></a
       >

@@ -2021,6 +2021,77 @@ details > p {
 .service-link:hover {
   background: var(--control-hover);
 }
+.service-quota {
+  display: grid;
+  grid-template-columns: minmax(170px, 0.4fr) 1fr;
+  align-items: center;
+  gap: 30px;
+  margin-bottom: 28px;
+  padding: 28px 32px;
+  border: 1px solid var(--control-border);
+  border-radius: 9px;
+  background: var(--primary-bg);
+  color: var(--on-accent);
+}
+.quota-amount {
+  border-right: 1px solid currentColor;
+  padding-right: 24px;
+}
+.quota-label,
+.quota-caption {
+  display: block;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+.quota-number {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 12px 0 8px;
+  line-height: 1;
+}
+.quota-number strong {
+  font-size: 66px;
+  font-weight: 700;
+  letter-spacing: -2px;
+  font-variant-numeric: lining-nums;
+}
+.quota-number > span {
+  white-space: nowrap;
+  font-size: 14px;
+}
+.quota-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border: 1px solid currentColor;
+  border-radius: 20px;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+}
+.quota-copy h3 {
+  margin: 10px 0 8px;
+  font-family: var(--serif);
+  font-size: 21px;
+  line-height: 1.6;
+  font-weight: 600;
+}
+.quota-copy p {
+  font-size: 13px;
+  line-height: 1.9;
+}
+.quota-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 10px;
+  min-height: 28px;
+  font-size: 11px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.quota-link:focus-visible {
+  outline-color: currentColor;
+}
 .setup-steps {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2098,6 +2169,22 @@ details > p {
   }
   .service-description {
     font-size: 12px;
+  }
+  .service-quota {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 23px;
+  }
+  .quota-amount {
+    border-right: 0;
+    border-bottom: 1px solid currentColor;
+    padding: 0 0 20px;
+  }
+  .quota-number strong {
+    font-size: 60px;
+  }
+  .quota-copy h3 {
+    font-size: 20px;
   }
   .setup-steps {
     grid-template-columns: 1fr;
