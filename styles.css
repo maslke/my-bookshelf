@@ -170,17 +170,6 @@ svg {
 .footer-github:hover {
   color: var(--green);
 }
-.site-header .nav-download {
-  border: 1px solid var(--control-border);
-  padding: 9px 19px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  gap: 23px;
-}
-.nav-download:hover {
-  background: var(--control-hover);
-}
 .hero {
   display: grid;
   grid-template-columns: 1.07fr 1fr;
@@ -1576,17 +1565,6 @@ details > p {
     font-size: 9px;
     letter-spacing: 1.3px;
   }
-  .site-header .primary-nav {
-    gap: 0;
-  }
-  .site-header .primary-nav > a:not(.nav-download) {
-    display: none;
-  }
-  .site-header .nav-download {
-    font-size: 11px;
-    gap: 14px;
-    padding: 7px 12px;
-  }
   .hero {
     padding-top: 39px;
     gap: 13px;
@@ -2372,12 +2350,8 @@ details > p {
     gap: 10px;
     font-size: 11px;
   }
-  .site-header .primary-nav > a:not(.nav-download) {
+  .site-header .primary-nav > a {
     display: inline-flex;
-  }
-  .site-header .nav-download {
-    gap: 6px;
-    padding: 6px 10px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
