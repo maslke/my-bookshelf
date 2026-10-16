@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="My Bookshelf is a personal library app for Android. Scan books, organize them with categories, tags, and locations, explore your library statistics, and keep your data with ZIP backups and CSV import/export."
+    />
+    <meta name="theme-color" content="#f8f5f0" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="My Bookshelf · A home for every book" />
+    <meta
+      property="og:description"
+      content="Scan, organize, find, and rediscover. Your personal library on your phone. For Android 8.0 or later."
+    />
+    <title>My Bookshelf · A home for every book</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/app-icon.svg" />
+    <link rel="alternate" hreflang="zh-CN" href="../index.html" />
+    <link rel="alternate" hreflang="en" href="./index.html" />
+    <!-- Apply the saved theme before styles load to avoid a light-theme flash. -->
+    <script src="../theme.js?v=2"></script>
+    <link rel="stylesheet" href="../styles.css?v=2" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header class="site-header wrap">
+      <a class="brand" href="#" aria-label="My Bookshelf, back to top">
+        <img src="../assets/app-icon.svg" width="38" height="38" alt="" />
+        <span
+          >My Bookshelf<span class="brand-en">YOUR PERSONAL LIBRARY</span></span
+        >
+      </a>
+      <div class="header-actions">
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a href="#features">Features</a>
+          <a href="#data">Data &amp; backup</a>
+          <a href="#setup">Setup</a>
+          <a class="nav-download" href="#download"
+            >Download<span aria-hidden="true">↗</span></a
+          >
+        </nav>
+        <div class="site-controls">
+          <details class="language-switcher">
+            <summary
+              class="icon-button"
+              aria-label="Language"
+              title="Change language"
+            >
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="12" cy="12" r="9" />
+                <ellipse cx="12" cy="12" rx="4" ry="9" />
+                <path d="M3 12h18" />
+              </svg>
+            </summary>
+            <nav class="language-menu" aria-label="Choose language">
+              <a href="../index.html" lang="zh-CN" hreflang="zh-CN"
+                >中文 <span aria-hidden="true">✓</span></a
+              >
+              <a href="./index.html" lang="en" hreflang="en" aria-current="page"
+                >English <span aria-hidden="true">✓</span></a
+              >
+            </nav>
+          </details>
+          <button
+            type="button"
+            id="theme-toggle"
+            class="icon-button theme-switcher"
+            aria-label="Theme: System; switch to Light"
+            title="Theme: System; switch to Light"
+            hidden
+          >
+            <svg
+              class="icon theme-system"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <rect x="3" y="4" width="18" height="13" rx="2" />
+              <path d="M8 21h8m-4-4v4" />
+            </svg>
+            <svg class="icon theme-sun" viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+              />
+            </svg>
+            <svg class="icon theme-moon" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 14A8.5 8.5 0 0 1 10 4a8.5 8.5 0 1 0 10 10Z" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero wrap" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="tiny-line"></span>Your personal library
+          </p>
+          <h1 id="hero-title">
+            Every book<br />has <span class="title-mark">a home.</span>
+          </h1>
+          <p class="hero-description">
+            Remember what you own. Find what you want to read. Scan new books,
+            organize your collection, and keep your growing library in order on
+            your phone.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#download">
+              <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5" /></svg
+              >Get the Android app</a
+            >
+            <a class="text-link" href="#features"
+              >Explore the features<span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <p class="hero-meta">
+            <span class="status-dot"></span> Android 8.0+
+            <span class="meta-divider">/</span>Stored locally<span
+              class="meta-divider"
+              >/</span
+            >Easy backups
+          </p>
+        </div>
+
+        <figure class="hero-visual">
+          <div class="visual-arch" aria-hidden="true"></div>
+          <span class="visual-note" lang="en" aria-hidden="true"
+            >A LITTLE ORDER. A LOT OF STORIES.</span
+          >
+          <div class="phone" aria-hidden="true">
+            <div class="phone-camera"></div>
+            <div class="phone-screen">
+              <div class="phone-status">
+                <span>9:41</span><span>▰ ▰ ▮</span>
+              </div>
+              <div class="phone-heading">
+                <div>
+                  <strong>My Bookshelf</strong
+                  ><small>6 books · Collected with care</small>
+                </div>
+                <svg class="icon" viewBox="0 0 24 24">
+                  <circle cx="10" cy="10" r="6.5" />
+                  <path d="m15 15 5 5" />
+                </svg>
+              </div>
+              <div class="phone-filters">
+                <span class="selected">All</span><span>Reading</span
+                ><span>Read</span><span>Unread</span>
+              </div>
+              <div class="book-grid" lang="zh-CN">
+                <div class="book">
+                  <div class="cover cover-walden">
+                    <span class="cover-english">WALDEN</span><b>瓦尔登湖</b
+                    ><i class="lake"></i><small>HENRY D. THOREAU</small>
+                  </div>
+                  <strong>瓦尔登湖</strong><small>亨利·戴维·梭罗</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-prince">
+                    <span class="cover-english">LE PETIT PRINCE</span
+                    ><b>小王子</b><i class="planet">✧</i
+                    ><small>ANTOINE DE SAINT-EXUPÉRY</small>
+                  </div>
+                  <strong>小王子</strong><small>圣埃克苏佩里</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-birds">
+                    <span class="cover-english">STRAY BIRDS</span><b>飞鸟集</b
+                    ><i class="bird">⌁</i><small>RABINDRANATH TAGORE</small>
+                  </div>
+                  <strong>飞鸟集</strong><small>泰戈尔</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-moon">
+                    <span class="cover-english">THE MOON AND<br />SIXPENCE</span
+                    ><i class="moon"></i><b>月亮与<br />六便士</b>
+                  </div>
+                  <strong>月亮与六便士</strong><small>毛姆</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-mountain">
+                    <span class="cover-english">SANG ETSU KI</span
+                    ><i class="mountain"></i><b>山月记</b
+                    ><small>中 岛 敦</small>
+                  </div>
+                  <strong>山月记</strong><small>中岛敦</small>
+                </div>
+                <div class="book">
+                  <div class="cover cover-flower">
+                    <span class="cover-english">LU XUN</span><b>朝花夕拾</b
+                    ><i class="flower">✳</i><small>鲁 迅</small>
+                  </div>
+                  <strong>朝花夕拾</strong><small>鲁迅</small>
+                </div>
+              </div>
+              <div class="phone-nav">
+                <span class="active">▥<small>Library</small></span
+                ><span>▥<small>Stats</small></span
+                ><span class="add">＋</span><span>◉<small>Browse</small></span
+                ><span>♙<small>Profile</small></span>
+              </div>
+            </div>
+          </div>
+          <div class="floating-label" aria-hidden="true">
+            <span class="label-icon">✓</span>
+            <div>
+              Keep every favorite close<small>A home for every book.</small>
+            </div>
+          </div>
+          <figcaption>
+            Illustrative interface · Sample books and covers
+          </figcaption>
+        </figure>
+      </section>
+
+      <div class="principles wrap" aria-label="App highlights">
+        <div>
+          <span class="principle-number">01</span>
+          <p>
+            <strong>Add books with less effort</strong
+            ><span>Scan an ISBN or add details yourself</span>
+          </p>
+        </div>
+        <div>
+          <span class="principle-number">02</span>
+          <p>
+            <strong>Organize things your way</strong
+            ><span>Categories, tags, and shelf locations</span>
+          </p>
+        </div>
+        <div>
+          <span class="principle-number">03</span>
+          <p>
+            <strong>Keep your data in your hands</strong
+            ><span>Local storage with backups and exports</span>
+          </p>
+        </div>
+      </div>
+
+      <section
+        class="features wrap section-space"
+        id="features"
+        aria-labelledby="features-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Your library, one book at a time</p>
+            <h2 id="features-title">A little order.<br />A lot of stories.</h2>
+          </div>
+          <p>
+            Thoughtful tools for people who love physical books.<br />Easy to
+            add today. Easy to find tomorrow.
+          </p>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-art scan-art" aria-hidden="true">
+              <div class="barcode">
+                <span>ISBN 978-7-…</span>
+                <div class="barcode-lines"></div>
+                <div class="scan-line"></div>
+              </div>
+              <span class="art-tag">+ Add to library</span>
+            </div>
+            <div class="feature-text">
+              <span class="feature-index">01 / COLLECT</span>
+              <h3>Scan it. Shelve it.</h3>
+              <p>
+                Scan ISBN barcodes to look up book details. Scan several books
+                in a row, type an ISBN, or add a book without one.
+              </p>
+              <span class="feature-detail"
+                >Multiple lookup sources · Editable details</span
+              >
+              <a class="inline-link feature-setup-link" href="#setup"
+                >Set up ShowAPI ISBN lookup<span aria-hidden="true">→</span></a
+              >
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-art organize-art" aria-hidden="true">
+              <div class="folder">
+                <svg viewBox="0 0 24 24"><path d="M3 6h7l2 3h9v11H3Z" /></svg
+                ><span>Literature &amp; life</span
+                ><small>A corner for your favorites</small>
+              </div>
+              <div class="art-tags">
+                <span>Essays</span><span>Reading</span
+                ><span>Living room · A-02</span>
+              </div>
+            </div>
+            <div class="feature-text">
+              <span class="feature-index">02 / ORGANIZE</span>
+              <h3>A place for everything</h3>
+              <p>
+                Connect your interests with categories and tags, and record
+                where each book lives. Filter by reading status and organize
+                books in batches.
+              </p>
+              <span class="feature-detail"
+                >Custom categories · Tags · Locations</span
+              >
+            </div>
+          </article>
+          <article class="feature-card">
+            <div class="feature-art stats-art" aria-hidden="true">
+              <div class="mini-chart">
+                <div class="donut"></div>
+                <div class="chart-legend">
+                  <span><i></i>Literature</span><span><i></i>History</span
+                  ><span><i></i>Other</span>
+                </div>
+              </div>
+              <span class="chart-caption"
+                >See your collection from a new angle</span
+              >
+            </div>
+            <div class="feature-text">
+              <span class="feature-index">03 / DISCOVER</span>
+              <h3>Get to know your library</h3>
+              <p>
+                Explore your collection by author, publisher, category, tag,
+                publication year, and language. Open the details to rediscover
+                familiar favorites.
+              </p>
+              <span class="feature-detail"
+                >Library statistics · Reading status · Details</span
+              >
+            </div>
+          </article>
+        </div>
+        <div class="more-features">
+          <span>And a few thoughtful extras</span>
+          <p>
+            Search and sort<i>／</i>Full-size cover previews<i>／</i>Local cover
+            images<i>／</i>Random picks from your books
+          </p>
+        </div>
+      </section>
+
+      <section class="data-section" id="data" aria-labelledby="data-title">
+        <div class="data-inner wrap">
+          <div class="data-copy">
+            <p class="eyebrow">Peace of mind for your collection</p>
+            <h2 id="data-title">Your books.<br />Your data, too.</h2>
+            <p class="data-description">
+              Your library stays on your device. Browse and organize it
+              offline.<br />Make a backup before switching phones or after a big
+              tidy-up.
+            </p>
+            <ul class="data-list">
+              <li>
+                <span>01</span>
+                <div>
+                  <h3>Full ZIP backup and restore</h3>
+                  <p>
+                    Back up books, local covers, categories, locations, your
+                    profile, and settings. Preview a restore, then merge or
+                    replace your library.
+                  </p>
+                </div>
+              </li>
+              <li>
+                <span>02</span>
+                <div>
+                  <h3>CSV import and export</h3>
+                  <p>
+                    Move book records between the app and a spreadsheet. CSV
+                    includes book details and cover references; use ZIP for a
+                    complete transfer.
+                  </p>
+                </div>
+              </li>
+            </ul>
+            <p class="data-note">
+              An internet connection is needed for online book lookups and
+              remote covers.
+            </p>
+          </div>
+          <div class="backup-visual" aria-hidden="true">
+            <span class="backup-topline">MY BOOKSHELF / MY COLLECTION</span>
+            <div class="archive-icon">
+              <svg viewBox="0 0 80 88">
+                <path d="M14 4h34l20 20v60H14Z" />
+                <path
+                  d="M48 4v20h20M37 5v12m6 0v8m-6 0v8m6 0v8m-6 0v8m6 0v8M34 60h13v12H34Z"
+                /></svg
+              ><span>.zip</span>
+            </div>
+            <div class="backup-file">
+              <span>My Bookshelf · Full backup</span
+              ><span class="backup-check">✓</span>
+            </div>
+            <div class="backup-contents">
+              <span>Book records</span><span>Local covers</span
+              ><span>Categories &amp; locations</span><span>Settings</span>
+            </div>
+            <p>Collected with care. Kept with care.</p>
+            <div class="backup-bottomline">
+              <span>KEEP YOUR STORIES CLOSE.</span><span>↗</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="service-guide wrap"
+        id="setup"
+        aria-labelledby="setup-title"
+      >
+        <div class="service-heading">
+          <div class="service-copy">
+            <p class="eyebrow">Book information services · Setup</p>
+            <h2 id="setup-title">More details.<br />One more source.</h2>
+            <p class="service-description">
+              ShowAPI (万维易源) provides an ISBN lookup service for titles,
+              authors, publishers, and other book details. Get your own API key
+              (called an appKey on the platform), then add and enable it in My
+              Bookshelf.
+            </p>
+          </div>
+          <a
+            class="button service-link"
+            href="https://www.showapi.com/apis/isbn-book-1626"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Visit ShowAPI ISBN lookup<span aria-hidden="true">↗</span>
+            <span class="sr-only">(opens in a new tab)</span>
+          </a>
+        </div>
+        <aside class="service-quota" aria-labelledby="quota-title">
+          <div class="quota-amount">
+            <span class="quota-label"
+              >Free daily quota for registered users</span
+            >
+            <p class="quota-number">
+              <strong>100</strong><span>calls / day</span>
+            </p>
+            <span class="quota-caption">ISBN lookup API calls</span>
+          </div>
+          <div class="quota-copy">
+            <span class="quota-badge">Sign up · No payment needed</span>
+            <h3 id="quota-title">
+              The free quota usually covers everyday book lookups.
+            </h3>
+            <p>
+              ShowAPI’s L0 basic plan includes 100 free API calls per day. It
+              suits everyday personal library lookups, so you can get started
+              without buying a usage package.
+            </p>
+            <a
+              class="quota-link"
+              href="https://www.showapi.com/free-api"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Check the official free quota<span aria-hidden="true">↗</span
+              ><span class="sr-only">(opens in a new tab)</span></a
+            >
+          </div>
+        </aside>
+        <ol class="setup-steps">
+          <li>
+            <span class="setup-number" aria-hidden="true">01</span>
+            <h3>Sign up and get your appKey</h3>
+            <p>
+              Open the service page above and sign up or sign in to ShowAPI.
+              Choose “查看我的 appKey” (View my appKey) or “查看密钥” (View
+              key), then copy your appKey from the console.
+            </p>
+          </li>
+          <li>
+            <span class="setup-number" aria-hidden="true">02</span>
+            <h3>Add your key and enable it</h3>
+            <p>
+              In the app, go to “我的 → 书籍信息服务” (Profile → Book
+              information services). Find “万维易源” (ShowAPI), paste your key
+              into “万维易源 appKey”, and turn the service on.
+            </p>
+          </li>
+          <li>
+            <span class="setup-number" aria-hidden="true">03</span>
+            <h3>Test the connection, then save</h3>
+            <p>
+              Tap “测试 Key” (Test key) to check the connection. Once it
+              succeeds, tap “保存” (Save) in the top-right corner. The service
+              is then ready for ISBN scans and lookups. Testing alone does not
+              save the key.
+            </p>
+          </li>
+        </ol>
+        <p class="setup-note">
+          Quotas and service terms are set by ShowAPI; refer to its official
+          pages. “Test key” makes a real lookup and may use one API call.
+        </p>
+      </section>
+
+      <section class="faq wrap section-space" aria-labelledby="faq-title">
+        <div>
+          <p class="eyebrow">Before you begin</p>
+          <h2 id="faq-title">A few things to know</h2>
+          <p class="faq-intro">About your own little library.</p>
+        </div>
+        <div class="faq-items">
+          <details>
+            <summary>
+              Is this an ebook reader?<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              My Bookshelf helps you manage your personal collection: book
+              details, reading status, and storage locations. It does not
+              provide ebook content or book file downloads.
+            </p>
+          </details>
+          <details>
+            <summary>
+              What if a book has no ISBN or cannot be found?<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Add the title, author, and other details manually; an ISBN is
+              optional. Online results come from third-party sources and may be
+              incomplete. Review them before saving, or edit and add details
+              later.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can I use it offline?<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              You can view, search, categorize, and organize saved books
+              offline. Online lookups and remote cover images require an
+              internet connection. Some services need your own API key. Remote
+              cover references are not the same as images saved locally.
+            </p>
+          </details>
+          <details>
+            <summary>
+              How do I move my library to a new phone?<span
+                class="faq-plus"
+                aria-hidden="true"
+              ></span>
+            </summary>
+            <p>
+              Go to “我的 → 数据导入导出” (Profile → Data import/export) and
+              export a full ZIP backup. Keep it somewhere safe, install the app
+              on your new phone, and restore it there. ZIP includes local images
+              and settings; CSV is better for spreadsheets. Back up regularly
+              and check the preview before restoring.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section
+        class="download-section wrap"
+        id="download"
+        aria-labelledby="download-title"
+      >
+        <div class="download-decoration" aria-hidden="true">▥</div>
+        <p class="eyebrow">Your next good read is already on your shelf</p>
+        <h2 id="download-title">
+          Your library, <br class="mobile-break" />in your pocket.
+        </h2>
+        <p class="download-description">
+          Give every book a home you can find anytime.
+        </p>
+        <!-- 发布安装包后，可将此链接替换为具体 Release 的已签名 APK 下载地址。 -->
+        <a
+          class="button button-light"
+          href="https://github.com/maslke/my-bookshelf/releases"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 3v12m-4-4 4 4 4-4M5 15v5h14v-5" /></svg
+          >Download from Releases<span aria-hidden="true">↗</span
+          ><span class="sr-only">(opens in a new tab)</span></a
+        >
+        <p class="download-meta">Android 8.0 or later · APK installer</p>
+        <p class="release-note">
+          Installers will be available on GitHub Releases once published. If no
+          release is available yet, please check back later.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <a class="brand footer-brand" href="#"
+        ><img src="../assets/app-icon.svg" width="28" height="28" alt="" /><span
+          >My Bookshelf</span
+        ></a
+      >
+      <p>A place for every book.</p>
+      <a
+        class="footer-github"
+        href="https://github.com/maslke/my-bookshelf"
+        target="_blank"
+        rel="noopener noreferrer"
+        >GitHub Releases<span aria-hidden="true">↗</span
+        ><span class="sr-only">(opens in a new tab)</span></a
+      >
+    </footer>
+  </body>
+</html>

@@ -40,9 +40,9 @@ Android 个人藏书管理应用的介绍页面与安装包发布仓库。
 python3 source/scripts/build-site.py --output-dir "$RUNNER_TEMP/bookshelf-site" --no-readme
 ```
 
-只有导出的 `index.html`、`styles.css`、`theme.js`、`.nojekyll` 和 `assets/` 上传为 Pages 产物，私有源码检出目录不会发布。流程不回写本仓库的 `main` 分支，也不产生自动同步提交；根目录中的静态文件保留为手动导出的快照，线上页面以最近一次成功的 Action 部署为准。
+只有导出的 `index.html`、`en/index.html`、`styles.css`、`theme.js`、`.nojekyll` 和 `assets/` 上传为 Pages 产物，私有源码检出目录不会发布。流程不回写本仓库的 `main` 分支，也不产生自动同步提交；根目录中的静态文件保留为手动导出的快照，线上页面以最近一次成功的 Action 部署为准。
 
-部署完成后，页面地址为 `https://maslke.github.io/my-bookshelf/index.html`，以 Pages 设置页提供的地址为准。无需创建同名子目录，也无需前端构建工具。主题切换及页面资源均使用相对路径。
+部署完成后，页面地址为 `https://maslke.github.io/my-bookshelf/index.html`，以 Pages 设置页提供的地址为准。无需创建同名子目录，也无需前端构建工具。中英文通过页头地球图标切换，英文入口为 `https://maslke.github.io/my-bookshelf/en/`。主题图标按“跟随系统 → 浅色 → 深色”循环，并在两种语言间共享偏好。主题切换及页面资源均使用相对路径。
 
 配置参考：[私有仓库检出](https://github.com/actions/checkout#checkout-multiple-repos-private)、[Pages 自定义工作流](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages)、[Actions Secrets](https://docs.github.com/en/actions/how-tos/write-workflows/choose-what-workflows-do/use-secrets)。
 
