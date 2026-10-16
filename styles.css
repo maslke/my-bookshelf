@@ -6,7 +6,6 @@
   --section-surface: #eceee4;
   --control-border: #bdc4b5;
   --control-hover: #e9eddf;
-  --highlight: #e1e4d0;
   --primary-bg: #3d5237;
   --primary-hover: #2e4429;
   --on-accent: #fffdf6;
@@ -30,9 +29,15 @@
   --muted: #6c7068;
   --line: #dfdfd4;
   --serif: "Noto Serif CJK SC", "Songti SC", "STSong", "SimSun", serif;
+  /* System sans stack follows the reference site's approach; no web font requests. */
   --sans:
-    -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Microsoft YaHei", sans-serif;
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", Inter, "Segoe UI",
+    system-ui, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    "Noto Sans CJK SC", sans-serif;
+  --display: var(--sans);
+  --mono:
+    ui-monospace, "SFMono-Regular", Menlo, Consolas, "Liberation Mono",
+    monospace;
 }
 * {
   box-sizing: border-box;
@@ -46,8 +51,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 15px;
-  line-height: 1.7;
+  font-size: 16px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
 }
 a {
@@ -78,8 +83,10 @@ figure {
 }
 h1,
 h2 {
-  font-family: var(--serif);
-  font-weight: 600;
+  font-family: var(--display);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
 }
 img,
 svg {
@@ -138,14 +145,15 @@ svg {
   gap: 11px;
   font-size: 20px;
   font-weight: 650;
-  line-height: 1.4;
+  line-height: 1.35;
   flex-shrink: 0;
+  letter-spacing: -0.015em;
 }
 .brand-en {
   display: block;
-  font-size: 9px;
-  letter-spacing: 2.7px;
-  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  font-weight: 600;
   margin-top: 3px;
 }
 .site-header nav {
@@ -188,8 +196,8 @@ svg {
   gap: 10px;
   color: var(--green);
   font-size: 12px;
-  letter-spacing: 2px;
-  font-weight: 500;
+  letter-spacing: 0.08em;
+  font-weight: 600;
 }
 .tiny-line {
   width: 25px;
@@ -197,31 +205,21 @@ svg {
   background: var(--green);
 }
 h1 {
-  font-size: clamp(44px, 5.2vw, 68px);
-  line-height: 1.45;
-  letter-spacing: 1px;
+  font-size: clamp(44px, 5.2vw, 64px);
+  line-height: 1.18;
+  letter-spacing: -0.035em;
   margin: 22px 0 23px;
 }
 .title-mark {
-  position: relative;
-  isolation: isolate;
   white-space: nowrap;
-}
-.title-mark:after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  bottom: 7px;
-  left: 0;
-  right: 7px;
-  height: 13px;
-  background: var(--highlight);
-  transform: rotate(-1.7deg);
+  color: var(--green);
 }
 .hero-description {
-  font-size: 15px;
-  line-height: 2.05;
+  font-size: 18px;
+  line-height: 1.75;
   color: var(--muted);
+  max-width: 31em;
+  text-wrap: pretty;
 }
 .hero-actions {
   display: flex;
@@ -237,7 +235,7 @@ h1 {
   min-height: 52px;
   padding: 13px 23px;
   font-size: 14px;
-  font-weight: 550;
+  font-weight: 600;
   border-radius: 5px;
   transition:
     background 0.2s,
@@ -258,10 +256,10 @@ h1 {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .hero-meta {
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   gap: 9px;
@@ -679,20 +677,20 @@ h1 {
   padding-right: 0;
 }
 .principle-number {
-  font-family: Georgia, serif;
+  font-family: var(--mono);
   color: #929b80;
-  font-size: 22px;
-  font-style: italic;
+  font-size: 19px;
+  font-style: normal;
 }
 .principles strong {
   display: block;
-  font-size: 13px;
-  font-weight: 550;
+  font-size: 15px;
+  font-weight: 600;
 }
 .principles p > span {
   display: block;
   color: var(--muted);
-  font-size: 11px;
+  font-size: 13px;
   margin-top: 3px;
 }
 .section-space {
@@ -707,12 +705,12 @@ h1 {
 }
 .section-heading h2 {
   margin-top: 15px;
-  font-size: 41px;
-  line-height: 1.45;
+  font-size: 42px;
+  line-height: 1.2;
 }
 .section-heading > p {
-  font-size: 13px;
-  line-height: 2;
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--muted);
   padding-bottom: 7px;
 }
@@ -893,27 +891,30 @@ h1 {
   padding: 25px 24px 26px;
 }
 .feature-index {
-  font-size: 9px;
-  letter-spacing: 1.6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.05em;
   color: #7b856f;
 }
 .feature-text h3 {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 650;
   margin: 9px 0 12px;
+  line-height: 1.45;
+  letter-spacing: -0.015em;
 }
 .feature-text p {
   color: var(--muted);
-  font-size: 12px;
-  line-height: 1.95;
+  font-size: 15px;
+  line-height: 1.8;
 }
 .feature-detail {
   display: block;
   border-top: 1px solid var(--line);
   padding-top: 15px;
   margin-top: 20px;
-  font-size: 10px;
+  font-size: 12px;
   color: #69765e;
 }
 .more-features {
@@ -922,7 +923,7 @@ h1 {
   justify-content: center;
   gap: 23px;
   margin-top: 31px;
-  font-size: 11px;
+  font-size: 13px;
 }
 .more-features > span {
   color: #4b6040;
@@ -949,13 +950,13 @@ h1 {
   padding-bottom: 78px;
 }
 .data-copy h2 {
-  font-size: 39px;
-  line-height: 1.5;
+  font-size: 40px;
+  line-height: 1.25;
   margin-top: 16px;
 }
 .data-description {
-  font-size: 13px;
-  line-height: 2;
+  font-size: 16px;
+  line-height: 1.8;
   color: #707767;
   margin-top: 19px;
 }
@@ -971,24 +972,22 @@ h1 {
   gap: 16px;
 }
 .data-list li > span {
-  font:
-    italic 15px Georgia,
-    serif;
+  font: 500 13px/1.5 var(--mono);
   color: #929c80;
   margin-top: 5px;
 }
 .data-list h3 {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 650;
 }
 .data-list p {
-  font-size: 12px;
+  font-size: 15px;
   color: #707767;
-  line-height: 1.95;
+  line-height: 1.8;
   margin-top: 5px;
 }
 .data-note {
-  font-size: 10px;
+  font-size: 12px;
   color: #737d67;
   margin-top: 24px;
 }
@@ -1091,11 +1090,11 @@ h1 {
   padding-bottom: 100px;
 }
 .faq h2 {
-  font-size: 31px;
+  font-size: 32px;
   margin-top: 15px;
 }
 .faq-intro {
-  font-size: 12px;
+  font-size: 15px;
   color: var(--muted);
   margin-top: 14px;
 }
@@ -1109,7 +1108,7 @@ summary {
   list-style: none;
   cursor: pointer;
   padding: 21px 4px;
-  font-size: 13px;
+  font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1142,8 +1141,8 @@ details[open] .faq-plus:after {
   transform: rotate(0);
 }
 details > p {
-  font-size: 12px;
-  line-height: 1.95;
+  font-size: 15px;
+  line-height: 1.8;
   color: var(--muted);
   padding: 0 30px 22px 4px;
 }
@@ -1163,13 +1162,13 @@ details > p {
   font-size: 11px;
 }
 .download-section h2 {
-  font-size: 43px;
-  line-height: 1.5;
-  letter-spacing: 1px;
+  font-size: 42px;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
   margin-top: 15px;
 }
 .download-description {
-  font-size: 12px;
+  font-size: 16px;
   color: #d0d7c6;
   margin-top: 10px;
 }
@@ -1187,13 +1186,13 @@ details > p {
   margin-left: 9px;
 }
 .download-meta {
-  font-size: 10px;
+  font-size: 12px;
   color: #d0d7c6;
   margin-top: 15px;
   letter-spacing: 0.4px;
 }
 .release-note {
-  font-size: 10px;
+  font-size: 12px;
   color: #d0d7c6;
   margin-top: 5px;
 }
@@ -1223,13 +1222,13 @@ details > p {
   gap: 9px;
 }
 .site-footer p {
-  font-family: var(--serif);
-  font-size: 12px;
+  font-family: var(--sans);
+  font-size: 13px;
   color: #777e6e;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 .footer-github {
-  font-size: 11px;
+  font-size: 12px;
   display: flex;
   align-items: center;
   gap: 15px;
@@ -1265,7 +1264,7 @@ details > p {
     bottom: 89px;
   }
   .hero-description {
-    font-size: 16px;
+    font-size: 19px;
   }
 }
 @media (max-width: 1050px) {
@@ -1278,7 +1277,7 @@ details > p {
     gap: 0;
   }
   h1 {
-    font-size: 53px;
+    font-size: 54px;
   }
   .hero-actions {
     gap: 19px;
@@ -1321,10 +1320,10 @@ details > p {
     gap: 10px;
   }
   .principles strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .principles p > span {
-    font-size: 10px;
+    font-size: 12px;
   }
   .feature-grid {
     gap: 16px;
@@ -1368,11 +1367,11 @@ details > p {
     justify-content: center;
   }
   h1 {
-    font-size: 57px;
+    font-size: 56px;
     margin-block: 20px;
   }
   .hero-description {
-    font-size: 15px;
+    font-size: 18px;
   }
   .hero-visual {
     height: 590px;
@@ -1419,11 +1418,11 @@ details > p {
     margin-top: 7px;
   }
   .principles strong {
-    font-size: 11px;
+    font-size: 13px;
   }
   .principles p > span {
-    font-size: 10px;
-    line-height: 1.9;
+    font-size: 12px;
+    line-height: 1.7;
   }
   .section-space {
     padding-top: 75px;
@@ -1433,7 +1432,7 @@ details > p {
     font-size: 35px;
   }
   .section-heading > p {
-    font-size: 11px;
+    font-size: 15px;
   }
   .feature-grid {
     gap: 13px;
@@ -1445,14 +1444,14 @@ details > p {
     padding: 18px 14px 20px;
   }
   .feature-text h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
   .feature-text p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .feature-detail {
-    font-size: 9px;
-    line-height: 1.8;
+    font-size: 11px;
+    line-height: 1.7;
     min-height: 48px;
   }
   .barcode {
@@ -1516,7 +1515,7 @@ details > p {
     font-size: 30px;
   }
   .data-copy .eyebrow {
-    font-size: 10px;
+    font-size: 11px;
     letter-spacing: 1px;
   }
   .data-description br {
@@ -1549,7 +1548,7 @@ details > p {
     font-size: 25px;
   }
   summary {
-    font-size: 12px;
+    font-size: 15px;
   }
   .download-section h2 {
     font-size: 37px;
@@ -1571,8 +1570,8 @@ details > p {
     height: 33px;
   }
   .brand-en {
-    font-size: 7px;
-    letter-spacing: 2px;
+    font-size: 9px;
+    letter-spacing: 1.3px;
   }
   .site-header nav {
     gap: 0;
@@ -1593,18 +1592,14 @@ details > p {
     font-size: 11px;
   }
   h1 {
-    font-size: 48px;
-    line-height: 1.47;
-    letter-spacing: 0;
+    font-size: 46px;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
     margin: 21px 0 19px;
   }
-  .title-mark:after {
-    height: 10px;
-    bottom: 5px;
-  }
   .hero-description {
-    font-size: 13px;
-    line-height: 2;
+    font-size: 16px;
+    line-height: 1.8;
   }
   .hero-actions {
     gap: 20px;
@@ -1612,7 +1607,7 @@ details > p {
   }
   .button {
     min-height: 48px;
-    font-size: 12px;
+    font-size: 14px;
     padding-inline: 17px;
     gap: 7px;
   }
@@ -1621,11 +1616,11 @@ details > p {
     height: 18px;
   }
   .text-link {
-    font-size: 11px;
+    font-size: 13px;
     gap: 8px;
   }
   .hero-meta {
-    font-size: 9px;
+    font-size: 11px;
     gap: 7px;
     margin-top: 17px;
   }
@@ -1711,17 +1706,17 @@ details > p {
     border-bottom: 0;
   }
   .principle-number {
-    font-size: 21px;
+    font-size: 19px;
     width: 25px;
   }
   .principles p {
     margin-top: 0;
   }
   .principles strong {
-    font-size: 12px;
+    font-size: 14px;
   }
   .principles p > span {
-    font-size: 11px;
+    font-size: 13px;
   }
   .section-space {
     padding-top: 59px;
@@ -1733,17 +1728,17 @@ details > p {
   }
   .section-heading h2 {
     font-size: 33px;
-    line-height: 1.5;
+    line-height: 1.25;
     margin-top: 12px;
   }
   .section-heading > p {
-    font-size: 12px;
+    font-size: 15px;
     padding-bottom: 0;
     margin-top: 17px;
   }
   .eyebrow {
-    font-size: 10px;
-    letter-spacing: 1.5px;
+    font-size: 11px;
+    letter-spacing: 0.06em;
   }
   .feature-grid {
     grid-template-columns: 1fr;
@@ -1760,10 +1755,10 @@ details > p {
     margin-block: 8px 11px;
   }
   .feature-text p {
-    font-size: 12px;
+    font-size: 15px;
   }
   .feature-detail {
-    font-size: 10px;
+    font-size: 12px;
     min-height: 0;
     margin-top: 18px;
     padding-top: 15px;
@@ -1816,7 +1811,7 @@ details > p {
     font-size: 10px;
   }
   .more-features {
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 26px;
   }
   .more-features > p {
@@ -1836,20 +1831,20 @@ details > p {
     font-size: 32px;
   }
   .data-description {
-    font-size: 12px;
+    font-size: 15px;
   }
   .data-list {
     margin-top: 26px;
     gap: 23px;
   }
   .data-list h3 {
-    font-size: 14px;
+    font-size: 16px;
   }
   .data-list p {
-    font-size: 12px;
+    font-size: 15px;
   }
   .data-note {
-    font-size: 10px;
+    font-size: 12px;
     line-height: 1.9;
   }
   .backup-visual {
@@ -1882,15 +1877,15 @@ details > p {
     font-size: 29px;
   }
   .faq-intro {
-    font-size: 11px;
+    font-size: 14px;
     margin-top: 9px;
   }
   summary {
-    font-size: 12px;
+    font-size: 15px;
     padding-block: 20px;
   }
   details > p {
-    font-size: 12px;
+    font-size: 15px;
   }
   .download-section {
     padding: 39px 19px 33px;
@@ -1903,14 +1898,14 @@ details > p {
   .download-section h2 {
     font-size: 33px;
     margin-top: 18px;
-    line-height: 1.5;
+    line-height: 1.25;
   }
   .mobile-break {
     display: block;
   }
   .download-description {
-    font-size: 11px;
-    line-height: 1.9;
+    font-size: 15px;
+    line-height: 1.8;
     margin-top: 12px;
   }
   .button-light {
@@ -1919,10 +1914,10 @@ details > p {
     font-size: 12px;
   }
   .download-meta {
-    font-size: 9px;
+    font-size: 11px;
   }
   .release-note {
-    font-size: 9px;
+    font-size: 11px;
     line-height: 1.9;
     max-width: 265px;
     margin: 7px auto 0;
@@ -1948,13 +1943,13 @@ details > p {
   .site-footer p {
     order: 3;
     width: 100%;
-    font-size: 10px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 0;
     text-align: center;
     margin-top: 6px;
   }
   .footer-github {
-    font-size: 10px;
+    font-size: 12px;
     gap: 10px;
   }
 }
@@ -1963,13 +1958,13 @@ details > p {
     width: calc(100% - 32px);
   }
   h1 {
-    font-size: 42px;
+    font-size: 39px;
   }
   .hero-actions {
     gap: 13px;
   }
   .hero-description {
-    font-size: 12px;
+    font-size: 15px;
   }
   .hero-visual {
     height: 550px;
@@ -2002,13 +1997,13 @@ details > p {
   max-width: 650px;
 }
 .service-copy h2 {
-  font-size: 34px;
-  line-height: 1.5;
+  font-size: 36px;
+  line-height: 1.25;
   margin-top: 15px;
 }
 .service-description {
-  font-size: 13px;
-  line-height: 2;
+  font-size: 16px;
+  line-height: 1.8;
   color: var(--muted);
   margin-top: 17px;
 }
@@ -2016,14 +2011,14 @@ details > p {
   border: 1px solid var(--control-border);
   color: var(--green-dark);
   flex-shrink: 0;
-  font-size: 12px;
+  font-size: 13px;
 }
 .service-link:hover {
   background: var(--control-hover);
 }
 .service-quota {
   display: grid;
-  grid-template-columns: minmax(170px, 0.4fr) 1fr;
+  grid-template-columns: minmax(220px, 0.4fr) 1fr;
   align-items: center;
   gap: 30px;
   margin-bottom: 28px;
@@ -2070,14 +2065,14 @@ details > p {
 }
 .quota-copy h3 {
   margin: 10px 0 8px;
-  font-family: var(--serif);
+  font-family: var(--display);
   font-size: 21px;
-  line-height: 1.6;
-  font-weight: 600;
+  line-height: 1.45;
+  font-weight: 650;
 }
 .quota-copy p {
-  font-size: 13px;
-  line-height: 1.9;
+  font-size: 15px;
+  line-height: 1.8;
 }
 .quota-link {
   display: inline-flex;
@@ -2085,7 +2080,7 @@ details > p {
   gap: 9px;
   margin-top: 10px;
   min-height: 28px;
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -2109,24 +2104,24 @@ details > p {
 .setup-number {
   display: block;
   color: var(--green);
-  font:
-    italic 23px Georgia,
-    serif;
+  font: 500 16px/1.5 var(--mono);
   margin-bottom: 15px;
 }
 .setup-steps h3 {
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 650;
   margin-bottom: 10px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
 }
 .setup-steps p {
-  font-size: 13px;
-  line-height: 1.95;
+  font-size: 15px;
+  line-height: 1.8;
   color: var(--muted);
 }
 .setup-note {
-  font-size: 11px;
-  line-height: 1.9;
+  font-size: 12px;
+  line-height: 1.8;
   color: var(--muted);
   margin-top: 19px;
 }
@@ -2140,7 +2135,7 @@ details > p {
 }
 .feature-setup-link {
   display: inline-block;
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 13px;
 }
 @media (max-width: 800px) {
@@ -2168,7 +2163,7 @@ details > p {
     font-size: 30px;
   }
   .service-description {
-    font-size: 12px;
+    font-size: 15px;
   }
   .service-quota {
     grid-template-columns: 1fr;
@@ -2194,7 +2189,7 @@ details > p {
     padding: 23px;
   }
   .setup-note {
-    font-size: 10px;
+    font-size: 12px;
   }
 }
 /* Site theme: keep the individual book-cover artwork in its original palette. */
@@ -2211,7 +2206,6 @@ details > p {
   --section-surface: #20291f;
   --control-border: #59694f;
   --control-hover: #303d2c;
-  --highlight: #3b4a2f;
   --primary-bg: #a9c394;
   --primary-hover: #bfd6ac;
   --on-accent: #192317;
